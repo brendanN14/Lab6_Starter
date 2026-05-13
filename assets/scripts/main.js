@@ -40,7 +40,7 @@ function initFormHandler() {
 	// B2. Get form
 	const form = document.querySelector("form");
 
-	// A safety check in case form is hidden/missing
+	// safety check in case form is hidden/missing
 	if (!form) return;
 
 	// B3. Listen for submit
@@ -56,7 +56,7 @@ function initFormHandler() {
 			recipeObject[key] = value;
 		}
 
-		// Optional: convert number fields from strings to numbers
+		// Convert num fields from strings to numbers
 		recipeObject.rating = Number(recipeObject.rating);
 		recipeObject.numRatings = Number(recipeObject.numRatings);
 
@@ -82,13 +82,13 @@ function initFormHandler() {
 	// B10. Get Clear Local Storage button
 	const clearButton = document.querySelector("button.danger");
 
-	// Safety check
+	// safety check
 	if (!clearButton) return;
 
 	// B11. Add click listener
 	clearButton.addEventListener("click", () => {
 		// B12. Clear localStorage
-		localStorage.clear();
+		localStorage.removeItem("recipes");
 
 		// B13. Delete contents of main
 		const main = document.querySelector("main");
